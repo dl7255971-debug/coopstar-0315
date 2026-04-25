@@ -74,6 +74,9 @@
             box-shadow: 0 10px 40px -10px rgba(204, 0, 0, 0.3);
         }
 
+        .text-glow { text-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 2px 4px rgba(0,0,0,0.8); }
+        .text-glow-red { text-shadow: 0 0 15px rgba(204, 0, 0, 0.6), 0 2px 4px rgba(0,0,0,0.8); }
+
         /* Custom Tracker Styles for Light Mode */
         .tracker-node { position: relative; z-index: 2; }
         .tracker-line {
@@ -132,22 +135,22 @@
                     <span class="text-xs tracking-widest text-brand-red uppercase font-bold mt-0.5">Operação Integrada em SP</span>
                 </div>
 
-                <h1 data-aos="fade-up" data-aos-delay="100" class="font-display text-5xl md:text-7xl font-bold leading-[1.1] tracking-tighter text-white mb-6 mx-auto">
+                <h1 data-aos="fade-up" data-aos-delay="100" class="font-display text-5xl md:text-7xl font-bold leading-[1.1] tracking-tighter text-white mb-6 mx-auto text-glow">
                     A velocidade que sua <br />
-                    <span class="text-gradient">empresa exige.</span>
+                    <span class="text-gradient text-glow-red">empresa exige.</span>
                 </h1>
                 
-                <p data-aos="fade-up" data-aos-delay="200" class="text-lg text-slate-400 max-w-2xl mx-auto font-medium">
+                <p data-aos="fade-up" data-aos-delay="200" class="text-lg text-white font-bold max-w-2xl mx-auto drop-shadow-lg">
                     Gestão inteligente de motofrete e coletas B2B. Insira a sua Ordem de Serviço abaixo e acompanhe a movimentação da nossa frota em tempo real.
                 </p>
             </div>
 
             <!-- Dashboard de Rastreio (Logistic Flow) Funcional como painel central -->
             <div data-aos="fade-up" data-aos-delay="400" class="w-full bg-white border border-gray-200 rounded-[2rem] shadow-2xl p-8 md:p-12 relative z-10">
-                <h3 class="font-display text-2xl font-bold text-gray-900 mb-2 flex items-center justify-center md:justify-start gap-2">
+                <h3 class="font-display text-2xl font-bold text-white mb-2 flex items-center justify-center md:justify-start gap-2 text-glow">
                     <i data-lucide="activity" class="text-brand-red"></i> Central de Rastreio
                 </h3>
-                <p class="text-gray-500 mb-8 text-center md:text-left">Consulte status, rota e previsões de entrega das suas coletas.</p>
+                <p class="text-slate-200 font-medium mb-8 text-center md:text-left drop-shadow-md">Consulte status, rota e previsões de entrega das suas coletas.</p>
                 
                 <!-- Input Interativo -->
                 <div class="flex flex-col md:flex-row gap-4 mb-16">
@@ -211,24 +214,24 @@
     <section id="services" class="py-24 px-6 relative bg-transparent">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-brand-red font-extrabold tracking-widest uppercase text-xs">Portfólio Operacional</span>
-                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-4">Soluções em Logística</h2>
+                <span class="text-brand-red font-extrabold tracking-widest uppercase text-xs text-glow-red">Portfólio Operacional</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-4 text-glow">Soluções em Logística</h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
                 <div data-aos="fade-up" data-aos-delay="100" class="group card-premium rounded-3xl overflow-hidden">
                     <div class="h-56 overflow-hidden relative bg-gray-100">
-                        <!-- Imagem gerada: Moto Vermelha -->
-                        <img src="imagens/moto_frete_red.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Moto Frete" />
+                        <!-- Imagem gerada: Moto Vermelha CoopStar -->
+                        <img src="imagens/moto_frete_coopstar.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Moto Frete CoopStar" />
                     </div>
                     <div class="p-8">
-                        <div class="w-14 h-14 rounded-2xl bg-brand-red/10 border border-brand-red/20 flex items-center justify-center mb-6 text-brand-red">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-red/20 border border-brand-red/30 flex items-center justify-center mb-6 text-brand-red shadow-lg">
                             <i data-lucide="file-check-2" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Moto Frete Express</h3>
-                        <p class="text-gray-600 text-base leading-relaxed mb-8">Documentos e pequenos volumes. Despachos rápidos empresariais, serviços paralelos cartoriais e aeroportos com extrema agilidade.</p>
-                        <a href="https://wa.me/551150523563" target="_blank" class="text-brand-red font-bold flex items-center hover:text-brand-darkRed transition-colors">
+                        <h3 class="font-display text-2xl font-bold text-white mb-3 text-glow">Moto Frete Express</h3>
+                        <p class="text-slate-200 text-base leading-relaxed mb-8 font-medium">Documentos e pequenos volumes. Despachos rápidos empresariais, serviços paralelos cartoriais e aeroportos com extrema agilidade.</p>
+                        <a href="https://wa.me/551150523563" target="_blank" class="text-brand-red font-bold flex items-center hover:text-brand-lightRed transition-colors drop-shadow-md">
                             Cotar Serviço <i data-lucide="arrow-right" class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-2"></i>
                         </a>
                     </div>
@@ -237,16 +240,16 @@
                 <!-- Card 2 -->
                 <div data-aos="fade-up" data-aos-delay="200" class="group card-premium rounded-3xl overflow-hidden">
                     <div class="h-56 overflow-hidden relative bg-gray-100">
-                        <!-- Imagem gerada: Delivery Box -->
-                        <img src="imagens/delivery_ecommerce_red.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Delivery Empresarial" />
+                        <!-- Imagem gerada: Van Corporativa CoopStar -->
+                        <img src="imagens/van_frete_coopstar.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Van Delivery Corporativo" />
                     </div>
                     <div class="p-8">
-                        <div class="w-14 h-14 rounded-2xl bg-brand-red/10 border border-brand-red/20 flex items-center justify-center mb-6 text-brand-red">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-red/20 border border-brand-red/30 flex items-center justify-center mb-6 text-brand-red shadow-lg">
                             <i data-lucide="store" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Delivery Corporativo</h3>
-                        <p class="text-gray-600 text-base leading-relaxed mb-8">Implantação de equipe no seu negócio. Foco em custo-benefício para alto volume de saídas em e-commerces, farmácias e redes locais.</p>
-                        <a href="https://wa.me/551150523563" target="_blank" class="text-brand-red font-bold flex items-center hover:text-brand-darkRed transition-colors">
+                        <h3 class="font-display text-2xl font-bold text-white mb-3 text-glow">Delivery Corporativo</h3>
+                        <p class="text-slate-200 text-base leading-relaxed mb-8 font-medium">Implantação de equipe no seu negócio. Foco em custo-benefício para alto volume de saídas em e-commerces, farmácias e redes locais.</p>
+                        <a href="https://wa.me/551150523563" target="_blank" class="text-brand-red font-bold flex items-center hover:text-brand-lightRed transition-colors drop-shadow-md">
                             Cotar Serviço <i data-lucide="arrow-right" class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-2"></i>
                         </a>
                     </div>
@@ -255,15 +258,15 @@
                 <!-- Card 3 -->
                 <div data-aos="fade-up" data-aos-delay="300" class="group card-premium rounded-3xl overflow-hidden">
                     <div class="h-56 overflow-hidden relative bg-gray-100">
-                        <!-- Imagem Unsplash Themed (Van com toques de luz para encaixar no formato) -->
-                        <img src="imagens/expresso_intermunicipal_red.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Expresso Inter-municipal" />
+                        <!-- Imagem gerada: Caminhão Expresso CoopStar -->
+                        <img src="imagens/truck_frete_coopstar.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Expresso Inter-municipal CoopStar" />
                     </div>
                     <div class="p-8">
-                        <div class="w-14 h-14 rounded-2xl bg-brand-red/10 border border-brand-red/20 flex items-center justify-center mb-6 text-brand-red">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-red/20 border border-brand-red/30 flex items-center justify-center mb-6 text-brand-red shadow-lg">
                             <i data-lucide="map" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Expresso Inter-municipal</h3>
-                        <p class="text-gray-600 text-base leading-relaxed mb-8">Urgências além do limite metropolitano. Fretes blindados e diretos para o litoral paulista e rodovias do interior, sem transbordos.</p>
+                        <h3 class="font-display text-2xl font-bold text-white mb-3 text-glow">Expresso Inter-municipal</h3>
+                        <p class="text-slate-200 text-base leading-relaxed mb-8 font-medium">Urgências além do limite metropolitano. Fretes blindados e diretos para o litoral paulista e rodovias do interior, sem transbordos.</p>
                         <a href="tabela.htm" target="_blank" class="text-brand-red font-bold flex items-center hover:text-brand-darkRed transition-colors">
                             Ver Tabela Exclusiva <i data-lucide="external-link" class="w-5 h-5 ml-2 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"></i>
                         </a>
@@ -279,12 +282,12 @@
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
             
             <div data-aos="fade-right" class="w-full lg:w-1/2">
-                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-8 leading-tight text-glow">
                     Mais de 9 anos <br />
                     de experiência na matriz.
                 </h2>
                 
-                <p class="text-gray-600 text-lg mb-12">Oferecemos ótimos serviços 24 horas de segunda a segunda-feira e desempenhamos uma função importante: <strong class="text-brand-red">Agilizar</strong> a sua rotina.</p>
+                <p class="text-slate-200 text-lg mb-12 font-medium drop-shadow-md">Oferecemos ótimos serviços 24 horas de segunda a segunda-feira e desempenhamos uma função importante: <strong class="text-brand-red drop-shadow-md text-glow-red">Agilizar</strong> a sua rotina.</p>
 
                 <div class="space-y-4 relative z-10">
                     <a href="https://wa.me/551150523563" target="_blank" class="flex items-center gap-6 group bg-white shadow-sm p-5 rounded-2xl border border-gray-100 hover:border-brand-red transition-all cursor-pointer">
@@ -323,7 +326,7 @@
             <div data-aos="fade-left" class="w-full lg:w-1/2 relative">
                 <!-- Construção Nativa do Formulário -->
                 <div class="bg-white border top-2 border-gray-200 p-8 md:p-10 rounded-[2rem] relative z-10 shadow-2xl">
-                    <h3 class="font-display text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                    <h3 class="font-display text-2xl font-bold text-white mb-6 flex items-center gap-3 text-glow">
                         <i data-lucide="send" class="w-6 h-6 text-brand-red"></i> Solicite Cotação
                     </h3>
                     
