@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coopstar Express | Logística e Frete Rápido</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#ffffff',
+                        surface: '#f8fafc',
+                        surfaceLight: '#f1f5f9',
+                        brand: {
+                            red: '#cc0000',
+                            darkRed: '#990000',
+                            lightRed: '#ff1a1a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #ffffff; color: #1e293b; }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(204, 0, 0, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #cc0000 0%, #ff1a1a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card-premium {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .card-premium:hover { 
+            transform: translateY(-5px); 
+            border-color: rgba(204, 0, 0, 0.3);
+            box-shadow: 0 10px 40px -10px rgba(204, 0, 0, 0.15);
+        }
+
+        /* Custom Tracker Styles for Light Mode */
+        .tracker-node { position: relative; z-index: 2; }
+        .tracker-line {
+            position: absolute; top: 50%; left: 0; right: 0; height: 3px;
+            background: #e2e8f0; z-index: 1; transform: translateY(-50%);
+        }
+        .tracker-progress {
+            position: absolute; top: 50%; left: 0; height: 3px;
+            background: linear-gradient(90deg, #990000, #cc0000); z-index: 1;
+            transform: translateY(-50%);
+        }
+
+        /* Subtle ambient pattern */
+        .ambient-pattern {
+            position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.1;
+            background-image: radial-gradient(#cc0000 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-red selection:text-white relative">
+
+    <div class="ambient-pattern"></div>
+
+    <!-- Navegação -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300 py-4" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-brand-red text-white flex items-center justify-center shadow-lg shadow-brand-red/30 transition-all group-hover:scale-105">
+                    <i data-lucide="zap" class="w-5 h-5"></i>
+                </div>
+                <!-- Resgatando o logo original -->
+                <img src="imagens/logotipo.png" alt="CoopStar Express" class="h-8 ml-2 hidden md:block">
+                <div class="font-display font-bold text-xl tracking-tight text-gray-900 flex flex-col leading-none md:hidden">
+                    <span>COOPSTAR<span class="text-brand-red">.</span></span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#services" class="text-sm text-gray-600 hover:text-brand-red transition-colors font-bold tracking-wide">SERVIÇOS</a>
+                <a href="#contact" class="text-sm text-gray-600 hover:text-brand-red transition-colors font-bold tracking-wide">SOBRE & CONTATO</a>
+                <a href="https://wa.me/551150523563" target="_blank" class="px-6 py-2.5 rounded-full text-sm font-bold bg-brand-red text-white hover:bg-brand-darkRed transition-colors shadow-lg shadow-brand-red/30">
+                    AGENDAR COLETA
+                </a>
+            </div>
+            
+            <button class="md:hidden text-gray-900"><i data-lucide="menu" class="w-6 h-6"></i></button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION MODIFICADA: SEM IMAGEM, COM LOGISTIC FLOW FUNCIONAL -->
+    <section class="relative min-h-[90vh] flex flex-col items-center justify-center pt-32 pb-16 px-6 bg-gradient-to-b from-white to-surface">
+        <div class="max-w-6xl mx-auto w-full">
+            
+            <div class="text-center mb-16">
+                <div data-aos="fade-down" class="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-red/20 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+                    <span class="text-xs tracking-widest text-brand-red uppercase font-bold mt-0.5">Operação Integrada em SP</span>
+                </div>
+
+                <h1 data-aos="fade-up" data-aos-delay="100" class="font-display text-5xl md:text-7xl font-bold leading-[1.1] tracking-tighter text-gray-900 mb-6 mx-auto">
+                    A velocidade que sua <br />
+                    <span class="text-gradient">empresa exige.</span>
+                </h1>
+                
+                <p data-aos="fade-up" data-aos-delay="200" class="text-lg text-gray-600 max-w-2xl mx-auto font-medium">
+                    Gestão inteligente de motofrete e coletas B2B. Insira a sua Ordem de Serviço abaixo e acompanhe a movimentação da nossa frota em tempo real.
+                </p>
+            </div>
+
+            <!-- Dashboard de Rastreio (Logistic Flow) Funcional como painel central -->
+            <div data-aos="fade-up" data-aos-delay="400" class="w-full bg-white border border-gray-200 rounded-[2rem] shadow-2xl p-8 md:p-12 relative z-10">
+                <h3 class="font-display text-2xl font-bold text-gray-900 mb-2 flex items-center justify-center md:justify-start gap-2">
+                    <i data-lucide="activity" class="text-brand-red"></i> Central de Rastreio
+                </h3>
+                <p class="text-gray-500 mb-8 text-center md:text-left">Consulte status, rota e previsões de entrega das suas coletas.</p>
+                
+                <!-- Input Interativo -->
+                <div class="flex flex-col md:flex-row gap-4 mb-16">
+                    <div class="flex-grow flex items-center px-6 py-4 bg-surface border border-gray-300 rounded-xl focus-within:border-brand-red focus-within:ring-1 focus-within:ring-brand-red transition-all">
+                        <i data-lucide="package" class="w-6 h-6 text-gray-400 mr-3"></i>
+                        <input type="text" id="tracking-input" placeholder="Digite seu código (Ex: COOP-8823190-SP)" class="w-full bg-transparent border-none text-gray-900 font-bold focus:outline-none placeholder-gray-400 text-lg">
+                    </div>
+                    <button id="btn-rastrear" onclick="simulateTracking()" class="bg-brand-red hover:bg-brand-darkRed text-white font-bold px-10 py-4 rounded-xl transition-all shadow-lg shadow-brand-red/30 flex items-center justify-center gap-2 whitespace-nowrap text-lg">
+                        Consultar Rota <i data-lucide="target" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <!-- Visor da Linha do Tempo (Logistic Flow) -->
+                <div class="relative w-full pt-8">
+                    <!-- Linhas Base -->
+                    <div class="tracker-line hidden md:block"></div>
+                    <div class="tracker-progress hidden md:block w-0 transition-all duration-1000" id="tracker-progress-bar"></div>
+                    
+                    <div class="flex flex-col md:flex-row justify-between gap-12 md:gap-0 relative">
+                        <!-- Node 1 -->
+                        <div class="tracker-node flex flex-col items-center">
+                            <div id="node1" class="w-14 h-14 rounded-full bg-surface border-4 border-gray-200 text-gray-400 flex items-center justify-center mb-4 transition-all duration-300"><i data-lucide="headset" class="w-6 h-6"></i></div>
+                            <h4 class="text-gray-900 font-bold text-sm">O.S Recebida</h4>
+                        </div>
+                        <!-- Node 2 -->
+                        <div class="tracker-node flex flex-col items-center">
+                            <div id="node2" class="w-14 h-14 rounded-full bg-surface border-4 border-gray-200 text-gray-400 flex items-center justify-center mb-4 transition-all duration-300"><i data-lucide="crosshair" class="w-6 h-6"></i></div>
+                            <h4 class="text-gray-900 font-bold text-sm">Coleta Local</h4>
+                        </div>
+                        <!-- Node 3 -->
+                        <div class="tracker-node flex flex-col items-center">
+                            <div id="node3" class="w-14 h-14 rounded-full bg-surface border-4 border-gray-200 text-gray-400 flex items-center justify-center mb-4 transition-all duration-300"><i data-lucide="navigation" class="w-6 h-6"></i></div>
+                            <h4 class="text-gray-900 font-bold text-sm">Em Trânsito</h4>
+                        </div>
+                        <!-- Node 4 -->
+                        <div class="tracker-node flex flex-col items-center">
+                            <div id="node4" class="w-14 h-14 rounded-full bg-surface border-4 border-gray-200 text-gray-400 flex items-center justify-center mb-4 transition-all duration-300"><i data-lucide="check-square" class="w-6 h-6"></i></div>
+                            <h4 class="text-gray-900 font-bold text-sm">Entrega Concluída</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detalhes Expandidos da Rota -->
+                <div id="tracker-details" class="hidden flex-col gap-6 mt-16 pt-8 border-t border-gray-100 bg-surfaceLight p-8 rounded-2xl">
+                    <div class="flex items-start gap-4">
+                        <div class="w-3 h-3 mt-1.5 rounded-full bg-brand-red flex-shrink-0 animate-pulse"></div>
+                        <div>
+                            <p class="text-gray-900 font-bold text-lg leading-none mb-1">Carga <span id="tracker-code-display" class="font-mono text-brand-red bg-red-100 px-2 py-0.5 rounded"></span> em Transporte Tático</p>
+                            <p class="text-gray-600 font-medium">Motociclista: Cleyton M. (Placa: EDR-8992) <span class="text-green-600 bg-green-100 px-2 py-1 rounded text-xs ml-2">Monitoramento Ativo via GPS</span></p>
+                            <p class="text-gray-500 text-sm mt-3 border-t border-gray-200 pt-3"><i data-lucide="clock" class="w-4 h-4 inline mr-1"></i> Previsão de chegada no destino: <strong>Há 15 minutos</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUÇÕES COMPLETAS COM NOVAS IMAGENS GERADAS -->
+    <section id="services" class="py-24 px-6 relative bg-white border-y border-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-brand-red font-extrabold tracking-widest uppercase text-xs">Portfólio Operacional</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mt-4">Soluções em Logística</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="group card-premium rounded-3xl overflow-hidden">
+                    <div class="h-56 overflow-hidden relative bg-gray-100">
+                        <!-- Imagem gerada: Moto Vermelha -->
+                        <img src="imagens/moto_frete_red.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Moto Frete" />
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-red/10 border border-brand-red/20 flex items-center justify-center mb-6 text-brand-red">
+                            <i data-lucide="file-check-2" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Moto Frete Express</h3>
+                        <p class="text-gray-600 text-base leading-relaxed mb-8">Documentos e pequenos volumes. Despachos rápidos empresariais, serviços paralelos cartoriais e aeroportos com extrema agilidade.</p>
+                        <a href="https://wa.me/551150523563" target="_blank" class="text-brand-red font-bold flex items-center hover:text-brand-darkRed transition-colors">
+                            Cotar Serviço <i data-lucide="arrow-right" class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="group card-premium rounded-3xl overflow-hidden">
+                    <div class="h-56 overflow-hidden relative bg-gray-100">
+                        <!-- Imagem gerada: Delivery Box -->
+                        <img src="imagens/delivery_ecommerce_red.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Delivery Empresarial" />
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-red/10 border border-brand-red/20 flex items-center justify-center mb-6 text-brand-red">
+                            <i data-lucide="store" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Delivery Corporativo</h3>
+                        <p class="text-gray-600 text-base leading-relaxed mb-8">Implantação de equipe no seu negócio. Foco em custo-benefício para alto volume de saídas em e-commerces, farmácias e redes locais.</p>
+                        <a href="https://wa.me/551150523563" target="_blank" class="text-brand-red font-bold flex items-center hover:text-brand-darkRed transition-colors">
+                            Cotar Serviço <i data-lucide="arrow-right" class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div data-aos="fade-up" data-aos-delay="300" class="group card-premium rounded-3xl overflow-hidden">
+                    <div class="h-56 overflow-hidden relative bg-gray-100">
+                        <!-- Imagem Unsplash Themed (Van com toques de luz para encaixar no formato) -->
+                        <img src="imagens/expresso_intermunicipal_red.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Expresso Inter-municipal" />
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-red/10 border border-brand-red/20 flex items-center justify-center mb-6 text-brand-red">
+                            <i data-lucide="map" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Expresso Inter-municipal</h3>
+                        <p class="text-gray-600 text-base leading-relaxed mb-8">Urgências além do limite metropolitano. Fretes blindados e diretos para o litoral paulista e rodovias do interior, sem transbordos.</p>
+                        <a href="tabela.htm" target="_blank" class="text-brand-red font-bold flex items-center hover:text-brand-darkRed transition-colors">
+                            Ver Tabela Exclusiva <i data-lucide="external-link" class="w-5 h-5 ml-2 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULÁRIO NATIVO E MENSAGENS NO MODO LIGHT -->
+    <section id="contact" class="py-24 px-6 bg-surface relative overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
+            
+            <div data-aos="fade-right" class="w-full lg:w-1/2">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+                    Mais de 9 anos <br />
+                    de experiência na matriz.
+                </h2>
+                
+                <p class="text-gray-600 text-lg mb-12">Oferecemos ótimos serviços 24 horas de segunda a segunda-feira e desempenhamos uma função importante: <strong class="text-brand-red">Agilizar</strong> a sua rotina.</p>
+
+                <div class="space-y-4 relative z-10">
+                    <a href="https://wa.me/551150523563" target="_blank" class="flex items-center gap-6 group bg-white shadow-sm p-5 rounded-2xl border border-gray-100 hover:border-brand-red transition-all cursor-pointer">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center bg-brand-red text-white">
+                            <i data-lucide="message-circle" class="w-7 h-7"></i>
+                        </div>
+                        <div>
+                            <p class="text-brand-red text-xs uppercase font-bold tracking-widest mb-1">WhatsApp Rápido</p>
+                            <p class="text-2xl font-display text-gray-900 font-medium">(11) 5052-3563</p>
+                        </div>
+                    </a>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="tel:+551150514442" class="flex items-center gap-4 group p-5 bg-white border border-gray-100 rounded-2xl hover:border-brand-red transition-all cursor-pointer">
+                            <div class="w-12 h-12 rounded-full bg-surface text-gray-900 flex items-center justify-center group-hover:bg-brand-red group-hover:text-white transition-all">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-xs uppercase font-bold">Linha Fixa</p>
+                                <p class="text-lg font-display text-gray-900">(11) 5051-4442</p>
+                            </div>
+                        </a>
+                        <a href="mailto:coopstar_express@hotmail.com" class="flex items-center gap-4 group p-5 bg-white border border-gray-100 rounded-2xl hover:border-brand-red transition-all cursor-pointer">
+                            <div class="w-12 h-12 rounded-full bg-surface text-gray-900 flex items-center justify-center group-hover:bg-brand-red group-hover:text-white transition-all">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-xs uppercase font-bold">E-mail</p>
+                                <p class="text-sm font-display text-gray-900 break-all">coopstar_express...</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div data-aos="fade-left" class="w-full lg:w-1/2 relative">
+                <!-- Construção Nativa do Formulário -->
+                <div class="bg-white border top-2 border-gray-200 p-8 md:p-10 rounded-[2rem] relative z-10 shadow-2xl">
+                    <h3 class="font-display text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                        <i data-lucide="send" class="w-6 h-6 text-brand-red"></i> Solicite Cotação
+                    </h3>
+                    
+                    <form action="enviar_hotsite.php" method="post" class="space-y-5">
+                        <div>
+                            <label for="nome" class="block text-xs uppercase tracking-widest text-gray-600 font-bold mb-2">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" required placeholder="Sua empresa" class="w-full bg-surface border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-all shadow-inner" />
+                        </div>
+                        <div>
+                            <label for="email" class="block text-xs uppercase tracking-widest text-gray-600 font-bold mb-2">E-mail Corporativo</label>
+                            <input type="email" id="email" name="email" required placeholder="contato@empresa.com" class="w-full bg-surface border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-all shadow-inner" />
+                        </div>
+                        <div>
+                            <label for="assunto" class="block text-xs uppercase tracking-widest text-gray-600 font-bold mb-2">Motivo</label>
+                            <input type="text" id="assunto" name="assunto" required placeholder="Assunto do contato" class="w-full bg-surface border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-all shadow-inner" />
+                        </div>
+                        <div>
+                            <label for="mensagem" class="block text-xs uppercase tracking-widest text-gray-600 font-bold mb-2">Demanda Específica</label>
+                            <textarea id="mensagem" name="mensagem" required rows="4" placeholder="Descreva os endereços ou tipo de entrega que precisa..." class="w-full bg-surface border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-all resize-none shadow-inner"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 mt-2 font-display bg-brand-red hover:bg-brand-darkRed text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-red/30">
+                            Enviar Imediato <i data-lucide="check" class="w-5 h-5"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 border-t border-gray-200 bg-white px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <span class="font-display font-bold text-gray-900 tracking-widest uppercase text-sm flex items-center gap-2">
+                <i data-lucide="zap" class="w-4 h-4 text-brand-red"></i> CoopStar Express
+            </span>
+            <div class="text-gray-500 text-xs font-medium">
+                &copy; 2026. Av. Jurucê, 898 - Moema - São Paulo - SP.
+            </div>
+            <a href="http://www.estudiocriarte.com.br/promohotsite" target="_blank" class="text-xs text-gray-400 hover:text-brand-red transition-colors font-bold">
+                Desenvolvimento Estúdio Criarte
+            </a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        lucide.createIcons();
+        AOS.init({ duration: 800, once: true });
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('py-3', 'bg-white/95', 'shadow-md');
+                navbar.classList.remove('py-4', 'bg-white/90');
+            } else {
+                navbar.classList.add('py-4', 'bg-white/90');
+                navbar.classList.remove('py-3', 'bg-white/95', 'shadow-md');
+            }
+        });
+
+        // Inteligência Visual do Tracker Funcional (Light Mode Adapted)
+        function simulateTracking() {
+            const input = document.getElementById('tracking-input');
+            const btn = document.getElementById('btn-rastrear');
+            const detailsList = document.getElementById('tracker-details');
+            const codeDisplay = document.getElementById('tracker-code-display');
+            const progressBar = document.getElementById('tracker-progress-bar');
+            
+            // Nodes (Nodes Visuais - Estado Inativo tem fundo do surface e borda cinza)
+            const n1 = document.getElementById('node1');
+            const n2 = document.getElementById('node2');
+            const n3 = document.getElementById('node3');
+            const n4 = document.getElementById('node4');
+            
+            if(!input.value.trim()) {
+                alert('Por favor, informe um código de rastreamento válido.');
+                input.focus();
+                return;
+            }
+            
+            // Loading State
+            const oldText = btn.innerHTML;
+            btn.innerHTML = 'Consultando Bancos... <i data-lucide="loader" class="w-5 h-5 animate-spin"></i>';
+            lucide.createIcons();
+            btn.disabled = true;
+            
+            // Reseta UI
+            detailsList.classList.remove('flex');
+            detailsList.classList.add('hidden');
+            progressBar.style.width = "0%";
+            [n1,n2,n3,n4].forEach(n => {
+                n.className = "w-14 h-14 rounded-full bg-surface border-4 border-gray-200 text-gray-400 flex items-center justify-center mb-4 transition-all duration-300";
+            });
+
+            // Simulando Delay do Banco de Dados
+            setTimeout(() => {
+                codeDisplay.innerText = input.value.toUpperCase();
+                detailsList.classList.remove('hidden');
+                detailsList.classList.add('flex');
+                
+                // Anima Barra de Progresso até o Ponto 3 (Em Trânsito - Cerca de 66%)
+                progressBar.style.width = "66%";
+                
+                // Pinta os Nodes que já passaram de Vermelho Escuro e o 'Atual' de Vermelho Brilhante
+                n1.className = "w-14 h-14 rounded-full bg-brand-darkRed border-4 border-brand-darkRed text-white flex items-center justify-center mb-4 shadow-lg";
+                n2.className = "w-14 h-14 rounded-full bg-brand-darkRed border-4 border-brand-darkRed text-white flex items-center justify-center mb-4 shadow-lg";
+                n3.className = "w-14 h-14 rounded-full bg-brand-red border-4 border-red-300 text-white flex items-center justify-center mb-4 shadow-[0_0_20px_rgba(204,0,0,0.4)]";
+                
+                btn.innerHTML = 'Status Monitorado <i data-lucide="check-circle" class="w-5 h-5"></i>';
+                lucide.createIcons();
+                
+                // Restaura o botão após o rastreio ser exibido
+                setTimeout(() => {
+                    btn.innerHTML = oldText;
+                    btn.disabled = false;
+                    lucide.createIcons();
+                }, 3000);
+            }, 1200);
+        }
+    </script>
+</body>
+</html>

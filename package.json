@@ -1,0 +1,16 @@
+{
+  "name": "coopstar-0315",
+  "version": "1.0.0",
+  "description": "Logística e Frete Rápido - CoopStar Express",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo \"Abra o index.html no seu navegador\""
+  },
+  "keywords": [
+    "logistica",
+    "frete",
+    "coopstar"
+  ],
+  "author": "",
+  "license": "ISC"
+}

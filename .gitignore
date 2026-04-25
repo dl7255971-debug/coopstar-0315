@@ -1,0 +1,17 @@
+# Pastas de backup/legado
+old/
+
+# Arquivos de Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Arquivos de Configuração Sensíveis
+.env
+
+# IDEs
+.vscode/
+.idea/
